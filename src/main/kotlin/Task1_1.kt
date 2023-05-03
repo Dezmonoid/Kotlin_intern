@@ -3,7 +3,6 @@ fun main() {
     var summ = 0
     println("Введите число")
     userNumber = readln().toInt()
-    println("Ваше число = $userNumber")
     summ = userNumber % 10 + first(userNumber)
     println("Сумма значений = $summ")
 }
