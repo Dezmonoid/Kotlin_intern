@@ -1,15 +1,20 @@
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 fun main() {
     println("Введите размер массива:")
-    val countArray = readln().toInt()
-    val arrayOfInteger = IntArray(countArray)
-    for (arrayIndex in 0 until countArray) {
-        arrayOfInteger[arrayIndex] = (0..20).random()
-        print("${arrayOfInteger[arrayIndex]} ")
+    val listSize = readln().toInt()
+    val listOfNumbers = List(listSize) {
+        val number = Random.nextInt(10)
+        print("$number ")
+        number
     }
     println()
-    for (arrayIndex in 1..countArray - 2) {
-        if (arrayOfInteger[arrayIndex] > arrayOfInteger[arrayIndex - 1] && arrayOfInteger[arrayIndex] > arrayOfInteger[arrayIndex + 1]) {
-            println("Значение ${arrayOfInteger[arrayIndex]}; ")
+    listOfNumbers.forEachIndexed { index, i ->
+        if (index != 0 && index != listOfNumbers.lastIndex) {
+            if (listOfNumbers[index] > listOfNumbers[index - 1] && listOfNumbers[index] > listOfNumbers[index + 1]) {
+                println("Значение ${listOfNumbers[index]}; ")
+            }
         }
     }
 }
