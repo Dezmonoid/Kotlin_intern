@@ -1,9 +1,16 @@
 fun main() {
     println("Введите число n")
     val rangeNumber = readln().toInt()
+    var amountNumber = 0
+    var indexNumber = 2
     var simpleNumber = ""
-    for (verificationNumber in 2 until rangeNumber) {
-        if (checkNumber(verificationNumber)) simpleNumber = "$simpleNumber $verificationNumber"
+    while (true) {
+        if (checkNumber(indexNumber)) {
+            simpleNumber = "$simpleNumber $indexNumber"
+            amountNumber += 1
+        }
+        if (rangeNumber == amountNumber) break
+        indexNumber += 1
     }
     println("Итог: $simpleNumber")
 }
