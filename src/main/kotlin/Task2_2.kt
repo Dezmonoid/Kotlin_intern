@@ -1,13 +1,15 @@
 fun main() {
-    val arrayOfInteger = IntArray(20)
-    for (itemNumber in 0..19) {
-        arrayOfInteger[itemNumber] = (0..20).random()
-        print("${arrayOfInteger[itemNumber]} ")
+    println("Введите размер массива:")
+    val countArray = readln().toInt()
+    val arrayOfInteger = IntArray(countArray)
+    for (arrayIndex in 0 until countArray) {
+        arrayOfInteger[arrayIndex] = (0..20).random()
+        print("${arrayOfInteger[arrayIndex]} ")
     }
     println()
-    for (index in 1..18) {
-        if (arrayOfInteger[index] > arrayOfInteger[index - 1] && arrayOfInteger[index] > arrayOfInteger[index + 1]) {
-            println("Значение ${arrayOfInteger[index]}; ")
+    for (arrayIndex in 1..countArray - 2) {
+        if (arrayOfInteger[arrayIndex] > arrayOfInteger[arrayIndex - 1] && arrayOfInteger[arrayIndex] > arrayOfInteger[arrayIndex + 1]) {
+            println("Значение ${arrayOfInteger[arrayIndex]}; ")
         }
     }
 }
