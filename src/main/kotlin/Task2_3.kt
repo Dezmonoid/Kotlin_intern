@@ -1,20 +1,22 @@
 fun main() {
-    val arrayOfElements = IntArray(10)
+    println("Введите размер массива:")
+    val countArray = readln().toInt()
+    val arrayOfElements = IntArray(countArray)
     var sumOfNumbers = 0
     var maximumNumber = 0
-    var minimumNumber = 100
-    for (elementNumber in 0..9) {
-        arrayOfElements[elementNumber] = (0..10).random()
+    println("Введите максимальное значение случайного числа")
+    val maximumRandomNumber = readln().toInt()
+    var minimumNumber = maximumRandomNumber
+    for (elementNumber in 0 until countArray) {
+        arrayOfElements[elementNumber] = (0..maximumRandomNumber).random()
         sumOfNumbers += arrayOfElements[elementNumber]
         if (arrayOfElements[elementNumber] > maximumNumber) {
             maximumNumber = arrayOfElements[elementNumber]
         }
-    }
-    arrayOfElements.forEach {
-        if (arrayOfElements[it] < minimumNumber) {
-            minimumNumber = arrayOfElements[it]
+        if (arrayOfElements[elementNumber] < minimumNumber) {
+            minimumNumber = arrayOfElements[elementNumber]
         }
-        println("${arrayOfElements[it]}")
+        println("${arrayOfElements[elementNumber]}")
     }
     println("Сумма чисел = $sumOfNumbers")
     println("max = $maximumNumber")
