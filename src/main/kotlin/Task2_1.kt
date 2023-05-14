@@ -4,13 +4,14 @@ fun main() {
     var amountNumber = 0
     var indexNumber = 2
     var simpleNumber = ""
-    while (true) {
+    while (rangeNumber != amountNumber) {
         if (checkNumber(indexNumber)) {
             simpleNumber = "$simpleNumber $indexNumber"
             amountNumber += 1
+            indexNumber += 1
+        } else {
+            indexNumber += 1
         }
-        if (rangeNumber == amountNumber) break
-        indexNumber += 1
     }
     println("Итог: $simpleNumber")
 }
