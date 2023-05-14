@@ -3,28 +3,42 @@ fun main() {
     val countArray = readln().toInt()
     val elementsArray = IntArray(countArray)
     for (i in 0 until countArray) elementsArray[i] = readln().toInt()
-    val arrayObject = Test(elementsArray, countArray)
-    println("Сумма положительных элементов массива = ${arrayObject.Amount()}")
-    println("Произведение элементов массива = ${arrayObject.Composition()}")
-    println("Среднее значение элементов массива = ${arrayObject.AverageValue()}")
+    val arrayObject = matchElement(elementsArray)
+    arrayObject.Amount()
+    arrayObject.Composition()
+    arrayObject.AverageValue()
 }
 
-class Test(private val elementsArray: IntArray, private val countArray: Int) {
-    fun Amount(): Int {
+class matchElement(private val elementsArray: IntArray) {
+    fun Amount(): Unit {
         var result = 0
-        for (i in 0..elementsArray.lastIndex) if (elementsArray[i] > 0) result += elementsArray[i]
-        return result
+        for (item in elementsArray.indices) {
+            if (elementsArray[item] > 0) result += elementsArray[item]
+        }
+        println("Сумма положительных элементов массива = $result")
     }
 
-    fun Composition(): Int {
+    fun Composition(): Unit {
         var result = 1
-        for (i in 0..elementsArray.lastIndex) result *= elementsArray[i]
-        return result
+        if (elementsArray.isEmpty()) {
+            println("Произведение элементов массива = 0")
+        } else {
+            for (item in elementsArray.indices) {
+                result *= elementsArray[item]
+            }
+            println("Произведение элементов массива = $result")
+        }
     }
 
-    fun AverageValue(): Int {
+    fun AverageValue(): Unit {
         var result = 0
-        for (i in 0..elementsArray.lastIndex) result += elementsArray[i]
-        return result / countArray
+        if (elementsArray.isEmpty()) {
+            println("Cреднее значение элементов массива = 0")
+        } else {
+            for (item in elementsArray.indices) {
+                result += elementsArray[item]
+            }
+            println("Cреднее значение элементов массива = ${result / elementsArray.size}")
+        }
     }
 }
