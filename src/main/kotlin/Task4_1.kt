@@ -3,21 +3,21 @@ fun main() {
     val countArray = readln().toInt()
     val elementsArray = IntArray(countArray)
     for (i in 0 until countArray) elementsArray[i] = readln().toInt()
-    val arrayObject = matchElement(elementsArray)
+    val arrayObject = MatchElement(elementsArray)
     if (elementsArray.isEmpty()) {
         println("Массив пустой")
     } else {
-        println("Сумма положительных элементов массива = ${arrayObject.Amount()}")
-        println("Произведение элементов массива = ${arrayObject.Composition()}")
-        println("Cреднее значение элементов массива = ${arrayObject.AverageValue()}")
+        println("Сумма положительных элементов массива = ${arrayObject.amount()}")
+        println("Произведение элементов массива = ${arrayObject.composition()}")
+        println("Cреднее значение элементов массива = ${arrayObject.averageValue()}")
     }
 }
 
-class matchElement(private val elementsArray: IntArray) {
-    fun Amount(): Int = elementsArray.sumOf { it }
+class MatchElement(private val elementsArray: IntArray) {
+    fun amount(): Int = elementsArray.sumOf { it }
 
-    fun Composition(): Int = elementsArray.reduce { acc, i -> acc * i }
+    fun composition(): Int = elementsArray.reduce { acc, i -> acc * i }
 
-    fun AverageValue(): Int = elementsArray.sumOf { it } / elementsArray.size
+    fun averageValue(): Int = elementsArray.sumOf { it } / elementsArray.size
 
 }
