@@ -22,18 +22,16 @@ fun rootsNumber(a: Double, b: Double, c: Double): Int {
 }
 
 fun quadraticRoot(a: Double, b: Double, c: Double) {
-    val x1: Double
-    val x2: Double
     when (rootsNumber(a, b, c)) {
         0 -> println("Корней нет")
         1 -> {
-            x1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a)
+            val x1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a)
             println("Корень x1 = $x1")
         }
 
         2 -> {
-            x1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a)
-            x2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a)
+            val x1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a)
+            val x2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a)
             println("Корень x1 = $x1")
             println("Корень x2 = $x2")
         }
