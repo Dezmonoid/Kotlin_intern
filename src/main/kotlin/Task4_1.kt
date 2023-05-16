@@ -4,41 +4,20 @@ fun main() {
     val elementsArray = IntArray(countArray)
     for (i in 0 until countArray) elementsArray[i] = readln().toInt()
     val arrayObject = matchElement(elementsArray)
-    arrayObject.Amount()
-    arrayObject.Composition()
-    arrayObject.AverageValue()
+    if (elementsArray.isEmpty()) {
+        println("Массив пустой")
+    } else {
+        println("Сумма положительных элементов массива = ${arrayObject.Amount()}")
+        println("Произведение элементов массива = ${arrayObject.Composition()}")
+        println("Cреднее значение элементов массива = ${arrayObject.AverageValue()}")
+    }
 }
 
 class matchElement(private val elementsArray: IntArray) {
-    fun Amount(): Unit {
-        var result = 0
-        for (item in elementsArray.indices) {
-            if (elementsArray[item] > 0) result += elementsArray[item]
-        }
-        println("Сумма положительных элементов массива = $result")
-    }
+    fun Amount(): Int = elementsArray.sumOf { it }
 
-    fun Composition(): Unit {
-        var result = 1
-        if (elementsArray.isEmpty()) {
-            println("Произведение элементов массива = 0")
-        } else {
-            for (item in elementsArray.indices) {
-                result *= elementsArray[item]
-            }
-            println("Произведение элементов массива = $result")
-        }
-    }
+    fun Composition(): Int = elementsArray.reduce { acc, i -> acc * i }
 
-    fun AverageValue(): Unit {
-        var result = 0
-        if (elementsArray.isEmpty()) {
-            println("Cреднее значение элементов массива = 0")
-        } else {
-            for (item in elementsArray.indices) {
-                result += elementsArray[item]
-            }
-            println("Cреднее значение элементов массива = ${result / elementsArray.size}")
-        }
-    }
+    fun AverageValue(): Int = elementsArray.sumOf { it } / elementsArray.size
+
 }
