@@ -14,10 +14,10 @@ fun main() {
 }
 
 class MatchElement(private val elementsArray: IntArray) {
-    fun amount(): Int = elementsArray.sumOf { it }
+    fun amount(): Int = elementsArray.sum()
 
     fun composition(): Int = elementsArray.reduce { acc, i -> acc * i }
 
-    fun averageValue(): Int = elementsArray.sumOf { it } / elementsArray.size
+    fun averageValue(): Int = elementsArray.sum() / elementsArray.size
 
 }
