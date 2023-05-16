@@ -11,8 +11,8 @@ fun main() {
         print("$it ")
     }
     println()
-    val sumOfNumbers = arrayOfElements.reduce { sum, element -> sum * element }
-    println("Произведение чисел = $sumOfNumbers")
+    val compositionOfNumber = arrayOfElements.reduce { sum, element -> sum * element }
+    println("Произведение чисел = $compositionOfNumber")
     max(countArray, arrayOfElements)
     min(countArray, arrayOfElements)
 }
