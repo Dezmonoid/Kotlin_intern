@@ -8,10 +8,8 @@ fun main() {
         if (checkNumber(indexNumber)) {
             simpleNumber = "$simpleNumber $indexNumber"
             amountNumber += 1
-            indexNumber += 1
-        } else {
-            indexNumber += 1
         }
+        indexNumber += 1
     }
     println("Итог: $simpleNumber")
 }
