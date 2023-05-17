@@ -3,55 +3,40 @@ fun main() {
     val countArray = readln().toInt()
     val elementsArray = IntArray(countArray)
     for (i in 0 until countArray) elementsArray[i] = readln().toInt()
-    val arrayObject = matchElement(elementsArray)
-    print("Изначальный вид массива: ")
-    arrayObject.elementsArray.forEach { print("$it ") }
-    println()
-    for (item in arrayObject.elementsArray.indices) {
-        arrayObject.sumOfElement += arrayObject.elementsArray[item]
-    }
+    val arrayObject = MatchElement(elementsArray)
+    arrayObject.print()
+    println("Массив = $arrayObject")
     println("Сумма элементов массива = ${arrayObject.sumOfElement}")
-    arrayObject.minElement()
-    arrayObject.maxElement()
-    arrayObject.upgradeMassive()
-    print("Изменённый вид массива: ")
-    arrayObject.elementsArray.forEach { print("$it ") }
+    println("Минимальное значение = ${arrayObject.minElement()}")
+    println("Максимальное значение = ${arrayObject.maxElement()}")
+    println("Изменённый вид массива: ${arrayObject.getNewMassive().joinToString()}")
 }
 
-class matchElement(public val elementsArray: IntArray) {
-    public var sumOfElement = 0
-    private var arrayIndex = 0
-    private var minimumNumber = elementsArray[0]
-    private var maximumNumber = 0
-    fun minElement(): Unit {
-        arrayIndex = 1
-        while (arrayIndex < elementsArray.size) {
-            if (elementsArray[arrayIndex] < minimumNumber) {
-                minimumNumber = elementsArray[arrayIndex]
-            }
-            arrayIndex += 1
-        }
-        println("Минимальное значение = $minimumNumber")
-    }
+class MatchElement(private val elementsArray: IntArray) {
+    val sumOfElement: Int
+        get() = elementsArray.sum()
 
-    fun maxElement(): Unit {
-        arrayIndex = 0
-        for (arrayIndex in elementsArray.indices) {
-            if (elementsArray[arrayIndex] > maximumNumber) {
-                maximumNumber = elementsArray[arrayIndex]
-            }
-        }
-        println("Максимальное значение = $maximumNumber")
-    }
+    fun minElement() = elementsArray.min()
 
-    fun upgradeMassive(): Unit {
-        arrayIndex = 0
-        for (arrayIndex in elementsArray.indices) {
-            if (elementsArray[arrayIndex] % 2 == 0) {
-                elementsArray[arrayIndex] *= 2
+    fun maxElement() = elementsArray.max()
+
+    fun getNewMassive(): IntArray {
+        val result = elementsArray.clone()
+        result.forEachIndexed { index, element ->
+            if (element % 2 == 0) {
+                result[index] *= 2
             } else {
-                elementsArray[arrayIndex] *= 3
+                result[index] *= 3
             }
         }
+        return result
+    }
+
+    fun print() {
+        println("Массив: ${elementsArray.joinToString()}")
+    }
+
+    override fun toString(): String {
+        return elementsArray.joinToString()
     }
 }
