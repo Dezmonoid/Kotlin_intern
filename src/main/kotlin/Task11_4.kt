@@ -8,17 +8,9 @@ fun main() {
 fun messageParse(userMessage: String, eventX: () -> Unit, eventY: () -> Unit, eventZ: () -> Unit) {
     userMessage.forEach { value: Char ->
         when {
-            value.equals('x', true) -> {
-                eventX()
-            }
-
-            value.equals('y', true) -> {
-                eventY()
-            }
-
-            value.equals('z', true) -> {
-                eventZ()
-            }
+            value.equals('x', true) -> eventX()
+            value.equals('y', true) -> eventY()
+            value.equals('z', true) -> eventZ()
         }
     }
 }
