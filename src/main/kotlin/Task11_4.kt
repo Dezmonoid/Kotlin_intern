@@ -5,18 +5,18 @@ fun main() {
         { println("обнаружен символ z") })
 }
 
-fun messageParse(message: String, eventX: () -> Unit, eventY: () -> Unit, eventZ: () -> Unit) {
-    message.forEach {
+fun messageParse(userMessage: String, eventX: () -> Unit, eventY: () -> Unit, eventZ: () -> Unit) {
+    userMessage.forEach { value: Char ->
         when {
-            it.equals('x', true) -> {
+            value.equals('x', true) -> {
                 eventX()
             }
 
-            it.equals('y', true) -> {
+            value.equals('y', true) -> {
                 eventY()
             }
 
-            it.equals('z', true) -> {
+            value.equals('z', true) -> {
                 eventZ()
             }
         }
