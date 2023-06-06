@@ -7,7 +7,7 @@ fun main() {
 3 - используя функцию let
 4 - используя Элвис-оператор ?:"""
     )
-    var way = readln()
+    val way = readln()
     words.forEach() {
         when (way) {
             "1" -> {
@@ -25,7 +25,7 @@ fun main() {
             }
 
             "4" -> {
-                println(it?.uppercase() ?: println("empty"))
+                println(it?.uppercase() ?: "empty")
             }
 
             else -> {
