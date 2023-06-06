@@ -1,4 +1,4 @@
 fun main() {
-    val listOfNumber = IntRange(1, 7)
-    println(listOfNumber.joinToString("+", "=", "="))
+    val rangeNumber = IntRange(1, 7)
+    println(rangeNumber.joinToString("+", "=", "="))
 }
