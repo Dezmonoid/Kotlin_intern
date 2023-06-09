@@ -45,24 +45,11 @@ fun registrationTransfer(
     doubleDigits: List<String?>
 ) {
     when (userNumber) {
-        in 1..9 -> {
-            println(singleDigits[userNumber])
-        }
+        in 1..9 -> println(singleDigits[userNumber])
+        in 10..19 -> println(secondTen[userNumber % 10])
+        20 -> println(doubleDigits[2])
+        in 21..99 -> println("${doubleDigits[userNumber.div(10)]} ${singleDigits[userNumber % 10]}")
+        else -> println("сто")
 
-        in 10..19 -> {
-            println(secondTen[userNumber % 10])
-        }
-
-        in 20..99 -> {
-            if (userNumber % 10 == 0 && userNumber.div(10) == 2) {
-                println(doubleDigits[2])
-            } else {
-                println("${doubleDigits[userNumber.div(10)]} ${singleDigits[userNumber % 10]}")
-            }
-        }
-
-        else -> {
-            println("сто")
-        }
     }
 }
