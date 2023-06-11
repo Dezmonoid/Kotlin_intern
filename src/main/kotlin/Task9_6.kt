@@ -47,8 +47,7 @@ fun registrationTransfer(
     when (userNumber) {
         in 1..9 -> println(singleDigits[userNumber])
         in 10..19 -> println(secondTen[userNumber % 10])
-        20 -> println(doubleDigits[2])
-        in 21..99 -> println("${doubleDigits[userNumber.div(10)]} ${singleDigits[userNumber % 10]}")
+        in 20..99 -> println("${doubleDigits[userNumber.div(10)]} ${singleDigits[userNumber % 10].orEmpty()}")
         else -> println("сто")
 
     }
